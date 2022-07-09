@@ -11,8 +11,8 @@ contract CampaignFactory{
     function getDeployedCampaigns() public view returns (address[]){
         return deployedCampaigns;
     }
-
 }
+
 contract Campaign{
     struct Request{
         string description;
@@ -20,14 +20,14 @@ contract Campaign{
         address recipient;
         bool complete;
         uint approvalCount; 
-        mapping(address=>bool) approvals;
+        mapping(address=>bool)approvals;
     }
     Request[] public requests;
     address public manager;
     uint public minimunContribution;
     //mapping is simmilar to object in javascript
     //this was used intead of the array because an array is a more expensive data type when doing a search for approvers later on
-    mapping(address=>bool) approvers; 
+    mapping(address => bool)public approvers; 
     uint public approversCount;
 
     modifier restricted(){
